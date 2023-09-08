@@ -11,6 +11,23 @@ export interface UserDocument extends mongoose.Document {
   comparePassword(password: string): Promise<boolean>;
 }
 
+/**
+ * @openapi
+ * components:
+ * schemas:
+ * CreateUserInput:
+ * type:Object
+ * required:
+ *  -email
+ *  -password
+ * properties:
+ *  email:
+ *    type:string
+ *    default:jan.doe@example.com
+ *  password:
+ *    type:string
+ *    default:StrongPassword123
+ */
 const userSchema = new mongoose.Schema(
   {
     email: { type: String, required: true, unique: true },
@@ -39,3 +56,25 @@ userSchema.methods.comparePassword = async function (
 const user = mongoose.model<UserDocument>('user', userSchema);
 
 export default user;
+/**
+ * @openapi
+ * components:
+ *  schemas:
+ *    Product:
+ *      type:object
+ *      required:
+ *        -title
+ *        -description
+ *        -price
+ *        -image
+ *      properties:
+ *        title:
+ *           type:string
+ *        description:
+ *           type:string
+ *        price:
+ *           type:number
+ *        image:
+ *           type:string
+ *
+ */
