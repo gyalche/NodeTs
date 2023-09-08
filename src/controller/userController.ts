@@ -16,4 +16,13 @@ export async function createUserHandler(
   }
 }
 
-export async function getGoogleOauthHandler(req: Request, res: Response) {}
+export async function getGoogleOauthHandler(req: Request, res: Response) {
+  //get the code from qs
+  //get the id and access token with code
+  // get user with token
+  //upsert the user;
+  //create a session
+  //create access and refresh token;
+  //set cookies ;
+  //and redirect back to client
+}
